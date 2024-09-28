@@ -1,0 +1,23 @@
+src/
+├── assets/
+│   ├── images/          # Gambar, ikon, dll.
+│   └── styles/          # Global styles (e.g. TailwindCSS config)
+├── components/          # Komponen reusable dan UI elements
+│   ├── forms/           # Form elements (e.g. Input, Button)
+│   └── layout/          # Layout (e.g. Navbar, Sidebar)
+├── features/            # Redux slices untuk fitur spesifik
+│   ├── auth/            # Authentication
+│   ├── todos/           # Todo features
+│   └── ...              # Fitur lain seperti profile, posts, dll.
+├── firebase/            # Setup dan konfigurasi Firebase
+├── hooks/               # Custom hooks untuk logika reuseable
+├── pages/               # Halaman yang terhubung dengan routing
+│   ├── Dashboard.js
+│   ├── Login.js
+│   └── Profile.js
+├── services/            # Services/API logic (e.g. Firebase, external APIs)
+├── store/               # Setup Redux store dan konfigurasi
+├── utils/               # Utility functions/helpers (e.g. date formatting, etc.)
+├── App.js               # Root component dan routing configuration
+├── index.js             # Entry point aplikasi
+└── tailwind.config.js   # Konfigurasi TailwindCSS
