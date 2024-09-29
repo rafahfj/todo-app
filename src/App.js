@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Root from "./pages/Root";
 import OnBoading from "./pages/OnBoading";
 import StartScreen from "./pages/StartScreen";
@@ -10,6 +10,7 @@ import PrivateFirstVisit from "./route/PrivateFirstVisit";
 import PrivateNotLog from "./route/PrivateNotLog";
 import Home from "./pages/Home";
 import PrivateLogIn from "./route/PrivateLogIn";
+import { AnimatePresence } from "framer-motion";
 
 function App() {
   const [direct, setDirect] = useState(false);
@@ -19,7 +20,7 @@ function App() {
   }, 10);
 
   return (
-    <BrowserRouter>
+    <AnimatePresence>
       <Routes>
         <Route path="/" element={direct ? <Root /> : <FirstLoading />}>
           <Route
@@ -51,7 +52,7 @@ function App() {
           ></Route>
         </Route>
       </Routes>
-    </BrowserRouter>
+    </AnimatePresence>
   );
 }
 
