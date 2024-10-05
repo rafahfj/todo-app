@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { handleLogin } from "../../features/auth/authSlice";
 export default function LoginForm() {
   const dispatch = useDispatch();
 
@@ -34,18 +35,18 @@ export default function LoginForm() {
       return;
     }
 
-    //   if (Object.keys(validateEmail).length === 0) {
-    //     const { email, password } = input;
-    //     const resultAction = await dispatch(handleLogin({ email, password }));
+    if (Object.keys(validateEmail).length === 0) {
+      const { email, password } = input;
+      const resultAction = await dispatch(handleLogin({ email, password }));
 
-    //     if (handleLogin.fulfilled.match(resultAction)) {
-    //     } else if (handleLogin.rejected) {
-    //       console.log(resultAction.payload);
-    //       setErrors(resultAction.payload);
-    //     }
-    //   } else {
-    //     setErrors(validationErrors);
-    //   }
+      if (handleLogin.fulfilled.match(resultAction)) {
+      } else if (handleLogin.rejected) {
+        console.log(resultAction.payload);
+        setErrors(resultAction.payload);
+      }
+    } else {
+      setErrors(validationErrors);
+    }
   };
 
   return (

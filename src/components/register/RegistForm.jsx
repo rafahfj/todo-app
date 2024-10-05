@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { handleRegister, setError } from "../../features/auth/authSlice";
 
 export default function RegistForm() {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ export default function RegistForm() {
       ...input,
       [e.target.id]: e.target.value,
     });
+    console.log(e.target.value);
   };
 
   const validateEmail = (email) => {
@@ -66,7 +68,7 @@ export default function RegistForm() {
   const handleRegist = async (e) => {
     e.preventDefault();
     let validationErrors = {};
-    //   dispatch(setError());
+    dispatch(setError());
 
     if (!validateEmail(input.email)) {
       validationErrors.email = "Email is not valid";
@@ -82,14 +84,14 @@ export default function RegistForm() {
 
     if (Object.keys(validationErrors).length === 0) {
       const { email, password, username } = input;
-      const resultAction = await dispatch();
-      // handleRegister({ email, password, username })
-
-      //  if (handleRegister.fulfilled.match(resultAction)) {
-      //  } else if (handleRegister.rejected) {
-      //    validationErrors.api = resultAction.payload;
-      //    setErrors(validationErrors);
-      //  }
+      const resultAction = await dispatch(
+        handleRegister({ email, password, username })
+      );
+      if (handleRegister.fulfilled.match(resultAction)) {
+      } else if (handleRegister.rejected) {
+        validationErrors.api = resultAction.payload;
+        setErrors(validationErrors);
+      }
     } else {
       setErrors(validationErrors);
     }
@@ -104,7 +106,6 @@ export default function RegistForm() {
             <input
               type="text"
               placeholder="Enter your Username"
-              yang
               id="username"
               onChange={onChange}
               className="block border-2 mb-2 p-2 rounded-md w-full"

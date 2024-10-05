@@ -8,3 +8,18 @@
     font-family: "Poppins", system-ui;
   }
 }
+
+@layer components {
+  .home-menu {
+    @apply flex flex-col;
+  }
+  .home-menu img {
+    @apply w-7 m-auto;
+  }
+  .home-menu h1 {
+    @apply text-sm;
+  }
+  .button-addtask {
+    @apply size-8;
+  }
+}

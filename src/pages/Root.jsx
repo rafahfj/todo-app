@@ -9,15 +9,18 @@ export default function Root() {
   const isVisited = useSelector((state) => state.visited.isVisited);
   const user = useSelector((state) => state.auth.user);
   const localVisited = localStorage.getItem("visited");
-  const localUser = localStorage.getItem("user");
+  const localUser = localStorage.getItem("userInfo");
 
   useEffect(() => {
     if (!isVisited) {
       if (localVisited) {
         dispatch(setVisited(true));
       }
+    }
+
+    if (!user?.uid) {
       if (localUser) {
-        dispatch(setUserLocal(localUser));
+        dispatch(setUserLocal(JSON.parse(localUser)));
       }
     }
   }, [dispatch]);

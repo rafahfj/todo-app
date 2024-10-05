@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Root from "./pages/Root";
 import OnBoading from "./pages/OnBoading";
 import StartScreen from "./pages/StartScreen";
@@ -11,17 +11,19 @@ import PrivateNotLog from "./route/PrivateNotLog";
 import Home from "./pages/Home";
 import PrivateLogIn from "./route/PrivateLogIn";
 import { AnimatePresence } from "framer-motion";
+import AddTask from "./pages/AddTask";
 
 function App() {
   const [direct, setDirect] = useState(false);
+  const location = useLocation();
 
   setTimeout(() => {
     setDirect(true);
   }, 10);
 
   return (
-    <AnimatePresence>
-      <Routes>
+    <AnimatePresence initial={false}>
+      <Routes location={location} key={location.pathname}>
         <Route path="/" element={direct ? <Root /> : <FirstLoading />}>
           <Route
             path="intro"
@@ -49,7 +51,9 @@ function App() {
                 <Home />
               </PrivateLogIn>
             }
-          ></Route>
+          >
+            <Route path="addtask" element={<AddTask />} />
+          </Route>
         </Route>
       </Routes>
     </AnimatePresence>
