@@ -22,7 +22,7 @@ function App() {
   }, 10);
 
   return (
-    <AnimatePresence initial={false}>
+    <AnimatePresence initial={false} mode="wait">
       <Routes location={location} key={location.pathname}>
         <Route path="/" element={direct ? <Root /> : <FirstLoading />}>
           <Route

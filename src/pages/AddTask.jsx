@@ -19,19 +19,19 @@ export default function AddTask() {
       <div className="top-0 right-0 bottom-0 left-0 fixed bg-slate-800/30">
         <div
           id="card"
-          className="right-0 bottom-0 left-0 fixed bg-primary-4 p-5 rounded-t-3xl-2xl h-[35%]"
+          className="right-0 bottom-0 left-0 fixed bg-primary-4 p-5 rounded-t-3xl h-[35%]"
         >
           <div>
             <h1 className="mb-3 font-semibold text-xl">Add Task</h1>
             <input
               type="text"
               placeholder="Tittle"
-              className="bg-primary-4 mb-2 focus:p-2 w-full transition-all duration-500"
+              className="bg-primary-4 mb-2 focus:p-2 w-full text-lg transition-all duration-500"
             />
             <input
               type="text"
               placeholder="Description"
-              className="bg-primary-4 mb-2 focus:p-2 w-full transition-all duration-500"
+              className="bg-primary-4 mb-2 focus:p-2 w-full text-sm transition-all duration-500"
             />
           </div>
           <div className="right-3 bottom-3 left-3 absolute flex justify-between">
